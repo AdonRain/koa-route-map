@@ -1,3 +1,8 @@
+'use strict';
+
+const path = require('path');
+const pathToRegexp = require('path-to-regexp');
+
 module.exports = function(routes, services) {
     return function*() {
         const method = this.method.toLowerCase();

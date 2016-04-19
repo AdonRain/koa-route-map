@@ -1,6 +1,6 @@
 {
   "name": "koa-route-map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Koa route middleware",
   "main": "index.js",
   "scripts": {
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/AdonRain/koa-route-map/issues"
   },
-  "homepage": "https://github.com/AdonRain/koa-route-map#readme"
+  "homepage": "https://github.com/AdonRain/koa-route-map#readme",
+  "dependencies": {
+    "path-to-regexp": "^1.2.1"
+  }
 }
