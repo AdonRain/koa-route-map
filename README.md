@@ -25,9 +25,9 @@ app.listen(3000);
 routes.js
 ```
 exports.get = {
-    '/': 'home.index,
-    '/foo: 'home.foo,
-    '/bar: 'page.bar',
+    '/': 'home.index',
+    '/foo': 'home.foo',
+    '/bar': 'page.bar',
 };
 
 exports.post = {
