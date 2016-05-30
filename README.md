@@ -17,12 +17,12 @@ const koa = require('koa');
 const routeMap = require('koa-route-map');
 
 const app = koa();
-app.use(routeMap('./routes', './services/'));
+app.use(routeMap('./services/'));
 
 app.listen(3000);
 ```
 
-routes.js
+services/index.js
 ```
 exports.get = {
     '/': 'home.index',
@@ -35,7 +35,7 @@ exports.post = {
 }
 ```
 
-services/home.js
+services/home/index.js
 ```
 exports.index = function*(){
   this.body = 'Hello';

@@ -3,10 +3,11 @@
 const path = require('path');
 const pathToRegexp = require('path-to-regexp');
 
-module.exports = function(routes, services) {
+module.exports = function(controllers) {
+    const routers = path.join(controllers, 'index.js');
     return function*() {
         const method = this.method.toLowerCase();
-        const routeFile = path.resolve(routes);
+        const routeFile = path.resolve(routers);
         const routeMap = require(routeFile)[method];
 
         let matchedPath = Object.keys(routeMap).filter((path) => {
@@ -17,7 +18,7 @@ module.exports = function(routes, services) {
         if (matchedPath) {
             let controller = routeMap[matchedPath];
             let fileAction = controller.split('.');
-            let ctrlFile = path.resolve(path.join(services, fileAction[0]));
+            let ctrlFile = path.resolve(path.join(controllers, fileAction[0]));
             let action = require(ctrlFile)[fileAction[1]];
             if (action) yield action.apply(this);
         }
